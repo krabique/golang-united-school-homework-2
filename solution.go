@@ -18,11 +18,15 @@ const SidesSquare shapeSidesQuantity = 4
 const SidesTriangle shapeSidesQuantity = 3
 const SidesCircle shapeSidesQuantity = 0
 
-func CalcSquare(sideLen float64, sidesNum shapeSidesQuantity) (area float64) {
+func CalcSquare(sideLen float64, sidesNum shapeSidesQuantity) float64 {
 	switch sidesNum {
 	case SidesSquare:
-		area = math.Pow(sideLen, 2)
+		return math.Pow(sideLen, 2)
+	case SidesTriangle:
+		return (math.Pow(sideLen, 2) * math.Sqrt(3)) / 4
+	case SidesCircle:
+		return math.Pi * math.Pow(sideLen, 2)
+	default:
+		return 0
 	}
-
-	return
 }
