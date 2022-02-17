@@ -8,5 +8,20 @@ package square
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-func CalcSquare(sideLen float64, sidesNum #yourTypeNameHere#) float64 {
+import "math"
+
+type shapeSidesQuantity int
+
+const SidesSquare shapeSidesQuantity = 4
+const SidesTriangle shapeSidesQuantity = 3
+const SidesCircle shapeSidesQuantity = 0
+
+func CalcSquare(sideLen float64, sidesNum shapeSidesQuantity) float64 {
+	var result float64
+
+	if sidesNum == SidesSquare {
+		result = math.Pow(sideLen, 2)
+	}
+
+	return result
 }
